@@ -292,7 +292,7 @@ func TestNewClient(t *testing.T) {
 	if c.apiKey != "rms_test_key" {
 		t.Errorf("apiKey = %q, want %q", c.apiKey, "rms_test_key")
 	}
-	if c.baseURL != "https://www.ramaris.app/api/v1" {
+	if c.baseURL != "https://api.ramaris.app/api/v1" {
 		t.Errorf("baseURL = %q, want default", c.baseURL)
 	}
 	if c.httpClient == nil {
@@ -541,8 +541,8 @@ func TestGetStrategy(t *testing.T) {
 
 func TestListWatchlist(t *testing.T) {
 	_, c := newTestServer(t, func(w http.ResponseWriter, r *http.Request) {
-		if r.URL.Path != "/me/strategies/watchlist" {
-			t.Errorf("path = %q, want /me/strategies/watchlist", r.URL.Path)
+		if r.URL.Path != "/strategies/me/watchlist" {
+			t.Errorf("path = %q, want /strategies/me/watchlist", r.URL.Path)
 		}
 		w.Header().Set("Content-Type", "application/json")
 		fmt.Fprint(w, `{

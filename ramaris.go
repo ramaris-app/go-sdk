@@ -12,7 +12,7 @@ import (
 	"time"
 )
 
-const defaultBaseURL = "https://www.ramaris.app/api/v1"
+const defaultBaseURL = "https://api.ramaris.app/api/v1"
 
 // Option configures a Client.
 type Option func(*Client)
@@ -230,7 +230,7 @@ func (c *Client) GetStrategy(ctx context.Context, shareID string) (*Strategy, er
 
 // ListWatchlist lists the authenticated user's watchlist strategies.
 func (c *Client) ListWatchlist(ctx context.Context, opts *ListOptions) (*ListResponse[WatchlistStrategy], error) {
-	resp, err := c.doRequest(ctx, "/me/strategies/watchlist", opts)
+	resp, err := c.doRequest(ctx, "/strategies/me/watchlist", opts)
 	if err != nil {
 		return nil, err
 	}
