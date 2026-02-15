@@ -42,15 +42,17 @@ func main() {
 ## Client Options
 
 ```go
-// Default client
+// Default client — connects to https://www.ramaris.app/api/v1
 client := ramaris.NewClient("rms_your_api_key")
 
-// Custom base URL (for testing)
+// Custom base URL — useful for local development or running your own instance
 client := ramaris.NewClient("rms_key", ramaris.WithBaseURL("http://localhost:3000/api/v1"))
 
 // Custom HTTP client
 client := ramaris.NewClient("rms_key", ramaris.WithHTTPClient(&http.Client{Timeout: 10 * time.Second}))
 ```
+
+The default base URL points to the production Ramaris API at `https://www.ramaris.app/api/v1`. The `WithBaseURL` option is only needed if you're testing against a local server or a custom deployment.
 
 ## Endpoints
 
